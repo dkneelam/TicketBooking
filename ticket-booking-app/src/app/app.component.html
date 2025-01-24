@@ -1,0 +1,77 @@
+<div class="container">
+  <h1>Ticket Booking System</h1>
+
+  <!-- Create Booking Section -->
+  <div class="create-booking">
+    <h2>Create Booking</h2>
+    <form [formGroup]="bookingsForm" (ngSubmit)="createBooking()">
+      <div>
+        <label for="customerName">Customer Name:</label>
+        <input id="customerName" formControlName="customerName" placeholder="Customer Name" required>
+        <div *ngIf="bookingsForm.controls['customerName'].invalid && bookingsForm.controls['customerName'].touched">
+          <small *ngIf="bookingsForm.controls['customerName'].hasError('required')">Customer name is required.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="contactEmail">Email:</label>
+        <input id="contactEmail" formControlName="contactEmail" placeholder="Email" required>
+        <div *ngIf="bookingsForm.controls['contactEmail'].invalid && bookingsForm.controls['contactEmail'].touched">
+          <small *ngIf="bookingsForm.controls['contactEmail'].hasError('required')">Email is required.</small>
+          <small *ngIf="bookingsForm.controls['contactEmail'].hasError('email')">Please enter a valid email.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="contactPhoneNumber">Phone Number:</label>
+        <input id="contactPhoneNumber" formControlName="contactPhoneNumber" placeholder="Phone Number" required>
+        <div *ngIf="bookingsForm.controls['contactPhoneNumber'].invalid && bookingsForm.controls['contactPhoneNumber'].touched">
+          <small *ngIf="bookingsForm.controls['contactPhoneNumber'].hasError('required')">Phone number is required.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="eventName">Event Name:</label>
+        <input id="eventName" formControlName="eventName" placeholder="Event Name" required>
+        <div *ngIf="bookingsForm.controls['eventName'].invalid && bookingsForm.controls['eventName'].touched">
+          <small *ngIf="bookingsForm.controls['eventName'].hasError('required')">Event name is required.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="numberOfTickets">Number of Tickets:</label>
+        <input id="numberOfTickets" formControlName="numberOfTickets" type="number" placeholder="Number of Tickets" required>
+        <div *ngIf="bookingsForm.controls['numberOfTickets'].invalid && bookingsForm.controls['numberOfTickets'].touched">
+          <small *ngIf="bookingsForm.controls['numberOfTickets'].hasError('required')">Number of tickets is required.</small>
+          <small *ngIf="bookingsForm.controls['numberOfTickets'].hasError('min')">Number of tickets must be at least 1.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="bookingDate">Booking Date:</label>
+        <input id="bookingDate" formControlName="bookingDate" type="date" required>
+        <div *ngIf="bookingsForm.controls['bookingDate'].invalid && bookingsForm.controls['bookingDate'].touched">
+          <small *ngIf="bookingsForm.controls['bookingDate'].hasError('required')">Booking date is required.</small>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="bookingsForm.invalid">Create Booking</button>
+    </form>
+  </div>
+
+  <!-- List Bookings Section -->
+  <div class="list-bookings">
+    <h2>Bookings List</h2>
+    <ul>
+      <li *ngFor="let booking of bookings">
+        <div>
+          <strong>{{ booking.customerName }}</strong><br>
+          Event: {{ booking.eventName }}<br>
+          <!--Date: {{ booking.bookingDate | date }}<br>-->
+          Tickets: {{ booking.numberOfTickets }}
+        </div>
+        <button (click)="deleteBooking(booking.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
