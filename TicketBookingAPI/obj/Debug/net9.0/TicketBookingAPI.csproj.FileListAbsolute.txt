@@ -48,3 +48,4 @@ C:\Users\dneelam\Ticket Booking System Project Main Folder\TicketBookingAPI\bin\
 C:\Users\dneelam\Ticket Booking System Project Main Folder\TicketBookingAPI\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\dneelam\Ticket Booking System Project Main Folder\TicketBookingAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\dneelam\Ticket Booking System Project Main Folder\TicketBookingAPI\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
+C:\Users\dneelam\Ticket Booking System Project Main Folder\TicketBookingAPI\obj\Debug\net9.0\TicketBookingAPI.sourcelink.json

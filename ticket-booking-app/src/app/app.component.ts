@@ -51,7 +51,7 @@ export class AppComponent {
 
   // Load all bookings
   loadBookings() {
-    this.http.get<any[]>('http://localhost:5000/api/bookings')
+    this.http.get<any[]>('http://localhost:5240/api/bookings')
       .subscribe(
         data => {
           this.bookings = data;
@@ -64,7 +64,7 @@ export class AppComponent {
 
   // Delete booking
   deleteBooking(id: string) {
-    this.http.delete(`http://localhost:5000/api/bookings/${id}`)
+    this.http.delete(`http://localhost:5240/api/bookings/${id}`)
       .subscribe(
         response => {
           console.log('Booking deleted successfully!', response);
